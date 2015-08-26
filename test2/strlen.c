@@ -1,31 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   strlen.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcuer <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/08/25 19:17:11 by mcuer             #+#    #+#             */
-/*   Updated: 2015/08/26 12:56:50 by mcuer            ###   ########.fr       */
+/*   Created: 2015/08/26 15:21:43 by mcuer             #+#    #+#             */
+/*   Updated: 2015/08/26 15:40:20 by mcuer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include <unistd.h>
 
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-
-void	ft_putstr(char *str)
+int		ft_strlen(char *str)
 {
 	int i;
+	int j;
 
 	i = 0;
-	while (str[i])
+	j = 0;
+	while (str[i] != '\0')
 	{
-		ft_putchar(str[i]);
+		if (str[i] == ' ')
+		{
+			j++;
+		}
 		i++;
 	}
-	ft_putchar('\n');
+	i = i - j;
+	printf("%d", i);
+	return (i);	
+}
+
+int		main(int argc, char **argv)
+{
+	if (argc < 2)
+	{
+		write(1,"\n", 1);
+		return (-1);
+	}
+	else
+		ft_strlen(argv[1]);
 }

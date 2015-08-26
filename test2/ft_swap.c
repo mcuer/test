@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcuer <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/08/25 19:17:11 by mcuer             #+#    #+#             */
-/*   Updated: 2015/08/26 12:56:50 by mcuer            ###   ########.fr       */
+/*   Created: 2015/08/26 13:43:00 by mcuer             #+#    #+#             */
+/*   Updated: 2015/08/26 13:58:35 by mcuer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-void	ft_putchar(char c)
+void	swap(int a,int b)
 {
-	write(1, &c, 1);
+	int c;
+
+	c = a;
+	a = b;
+	b = c;
+
+	printf("%d%d",a, b);
 }
 
-void	ft_putstr(char *str)
+int	main()
 {
-	int i;
-
-	i = 0;
-	while (str[i])
-	{
-		ft_putchar(str[i]);
-		i++;
-	}
-	ft_putchar('\n');
+	swap(1,2);
+	return (0);
 }
+	
