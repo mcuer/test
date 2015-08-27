@@ -1,48 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   search_and_replace.c                               :+:      :+:    :+:   */
+/*   print_bits.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcuer <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/08/26 15:40:29 by mcuer             #+#    #+#             */
-/*   Updated: 2015/08/26 17:31:39 by mcuer            ###   ########.fr       */
+/*   Created: 2015/08/27 11:46:47 by mcuer             #+#    #+#             */
+/*   Updated: 2015/08/27 14:33:36 by mcuer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <stdio.h>
+#include <stdlib.h>
 
-void	ft_putchar(char c)
+void	print_bits(unsigned char octet)
 {
-	write( 1, &c, 1);
-}
+	int index;
+	char number;
+	char str[8];
 
-void	search_and_replace(char *str,char *str1, char *str2)
-{
-	int i;
-	
-	i = 0;
-	while (str[i] != '\0')
+	index = 7;
+	while (index >= 0)
 	{
-		if (str[i] == str1[0])
-		{
-			//printf("lettre identique");
-			str[i] = str2[0];
-		}
-		ft_putchar(str[i]);
-		i++;
-	}	
-}
-
-int		main(int argc, char **argv)
-{
-	if (argc < 2)
-	{
-		ft_putchar('\n');
-		return (-1);
+		number = (octet % 2 + '0');
+		str[index] = number;
+		octet = octet / 2;
+		index--;
 	}
-	else
-		search_and_replace(argv[1],argv[2],argv[3]);
+	write (1, str, 8);
+}
+
+int		main(int argc , char **argv)
+{
+	if (argc == 2)
+		print_bits(atoi(argv[1]));
+	write(1,"\n", 1);
 	return (0);
 }

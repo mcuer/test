@@ -1,38 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   search_and_replace.c                               :+:      :+:    :+:   */
+/*   union.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcuer <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/08/26 15:40:29 by mcuer             #+#    #+#             */
-/*   Updated: 2015/08/26 17:31:39 by mcuer            ###   ########.fr       */
+/*   Created: 2015/08/27 09:21:45 by mcuer             #+#    #+#             */
+/*   Updated: 2015/08/27 11:24:02 by mcuer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <stdio.h>
 
 void	ft_putchar(char c)
 {
-	write( 1, &c, 1);
+	write(1, &c, 1);
 }
 
-void	search_and_replace(char *str,char *str1, char *str2)
+void	unionx(char *str, char *str2)
 {
 	int i;
-	
+	int j;
+
 	i = 0;
+	j = 0;
 	while (str[i] != '\0')
 	{
-		if (str[i] == str1[0])
+		while(str2[j] != '\0')
 		{
-			//printf("lettre identique");
-			str[i] = str2[0];
+			j++;
 		}
-		ft_putchar(str[i]);
+		if (str[i] == str2[i])
+			ft_putchar(str[i]);
 		i++;
-	}	
+	}
+	ft_putchar('\n');
 }
 
 int		main(int argc, char **argv)
@@ -43,6 +45,6 @@ int		main(int argc, char **argv)
 		return (-1);
 	}
 	else
-		search_and_replace(argv[1],argv[2],argv[3]);
+		unionx(argv[1],argv[2]);
 	return (0);
 }

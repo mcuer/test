@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   search_and_replace.c                               :+:      :+:    :+:   */
+/*   max.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcuer <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/08/26 15:40:29 by mcuer             #+#    #+#             */
-/*   Updated: 2015/08/26 17:31:39 by mcuer            ###   ########.fr       */
+/*   Created: 2015/08/26 17:31:53 by mcuer             #+#    #+#             */
+/*   Updated: 2015/08/26 20:46:47 by mcuer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,34 +15,31 @@
 
 void	ft_putchar(char c)
 {
-	write( 1, &c, 1);
+	write(1, &c, 1);
 }
 
-void	search_and_replace(char *str,char *str1, char *str2)
+void	nbmax(int *tab, int taille)
 {
 	int i;
-	
+	int max;
+
 	i = 0;
-	while (str[i] != '\0')
+	max = 0;
+	while(i < taille)
 	{
-		if (str[i] == str1[0])
+		if (tab[i] > max)
 		{
-			//printf("lettre identique");
-			str[i] = str2[0];
+			max = tab[i];
 		}
-		ft_putchar(str[i]);
 		i++;
-	}	
+	}
+	printf("%d\n", max);
 }
 
-int		main(int argc, char **argv)
+int		main(void)
 {
-	if (argc < 2)
-	{
-		ft_putchar('\n');
-		return (-1);
-	}
-	else
-		search_and_replace(argv[1],argv[2],argv[3]);
+	int tab[5] = {1,2,3,4,5};
+	nbmax(tab, 5);
 	return (0);
 }
+
