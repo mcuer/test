@@ -6,7 +6,7 @@
 /*   By: mcuer <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/08/26 15:40:29 by mcuer             #+#    #+#             */
-/*   Updated: 2015/08/26 17:31:39 by mcuer            ###   ########.fr       */
+/*   Updated: 2015/08/28 16:44:20 by mcuer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	search_and_replace(char *str,char *str1, char *str2)
 	{
 		if (str[i] == str1[0])
 		{
-			//printf("lettre identique");
 			str[i] = str2[0];
 		}
 		ft_putchar(str[i]);

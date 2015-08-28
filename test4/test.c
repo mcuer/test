@@ -1,37 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_countdown.c                                     :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcuer <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/08/24 13:48:36 by mcuer             #+#    #+#             */
-/*   Updated: 2015/08/28 16:45:06 by mcuer            ###   ########.fr       */
+/*   Created: 2015/08/28 21:21:25 by mcuer             #+#    #+#             */
+/*   Updated: 2015/08/28 21:29:19 by mcuer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-int		ft_putchar(char c)
-{
-	write(1, &c, 1);
-	return (0);
-}
+#include <stdio.h>
 
-void	ft_countdown(void)
+int		ft_strlen(char *str)
 {
 	int i;
 
-	i = '9';
-	while ( i >= '0')
+	i = 0;
+	while (str[i] != '\0')
 	{
-		ft_putchar(i);
-		i--;
+		i++;
 	}
-	ft_putchar('\n');
+	return (i);
 }
 
-int		main(void)
+int		main(int argc, char **argv)
 {
-	ft_countdown();
-	return (0);
+	if (argc < 1)
+	{
+		return (-1);
+	}
+	else
+	{
+		int i;
+		i = 1;
+		while (i > 0  && i <= 3)
+		{
+			printf("%d\n", ft_strlen(argv[i]));
+			i++;
+		}
+		return (0);
+	}
 }

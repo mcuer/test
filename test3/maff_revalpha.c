@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_countdown.c                                     :+:      :+:    :+:   */
+/*   maff_revalpha.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcuer <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/08/24 13:48:36 by mcuer             #+#    #+#             */
-/*   Updated: 2015/08/28 16:45:06 by mcuer            ###   ########.fr       */
+/*   Created: 2015/08/27 22:41:08 by mcuer             #+#    #+#             */
+/*   Updated: 2015/08/28 10:01:25 by mcuer            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-int		ft_putchar(char c)
+#include <stdio.h>
+
+void	ft_putchar(char c)
 {
 	write(1, &c, 1);
-	return (0);
 }
 
-void	ft_countdown(void)
+void	maff_revalpha(void)
 {
 	int i;
 
-	i = '9';
-	while ( i >= '0')
+	i = 'z';
+	while ( i >= 'a')
 	{
 		ft_putchar(i);
 		i--;
 	}
-	ft_putchar('\n');
 }
 
 int		main(void)
 {
-	ft_countdown();
+	maff_revalpha();
 	return (0);
 }
